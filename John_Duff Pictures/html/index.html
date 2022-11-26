@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Album Photo</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/style.css">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <div id="container">
+            <div id="photo" class="img"></div>
+            <div id ="reflet" class="img">
+            <div></div>
+        </div>
+    </div>
+        <script>
+document.body.onload=function()
+{
+    i = 1;
+    ang=0;
+    setInterval("album()",20);
+}
+function album()
+{
+    document.getElementById("container").style.transform="perspective(1000px) rotateY("+ang+"deg)";
+     ang++;
+     if(ang>=360) ang=0;
+     if(ang==90 || ang==270)
+    {
+        i+=1;
+        if(i>5) i=1;
+        document.getElementById("photo").style.backgroundImage="url('../images/im"+i+".jpg')";
+        document.getElementById("reflet").style.backgroundImage="url('../images/im"+i+".jpg')";
+    }
+}
+        </script>
+    </body>
+</html>
